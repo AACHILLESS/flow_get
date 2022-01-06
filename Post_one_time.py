@@ -26,6 +26,7 @@ def check_flows(url,cook,key):
     r=requests.get(get_url,cookies=cook)
     r.encoding = r.apparent_encoding
     s=BeautifulSoup(r.text)
+    print('BeautifulSoup is OK')
     inf=s.find_all("div",class_="card-inner margin-bottom-no")[3]
     for i in inf.children:
         if i.string is None:

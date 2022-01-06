@@ -24,6 +24,7 @@ get_url="https://lichen.mutualism.zone/user"
 def check_flows(url,cook,key):
     print("enter check flows!")
     r=requests.get(get_url,cookies=cook)
+    print("get ok!")
     r.encoding = r.apparent_encoding
     s=BeautifulSoup(r.text)
     inf=s.find_all("div",class_="card-inner margin-bottom-no")[3]

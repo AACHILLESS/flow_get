@@ -22,6 +22,7 @@ get_url="https://lichen.mutualism.zone/user"
 
 
 def check_flows(url,cook,key):
+    print("enter check flows!")
     r=requests.get(get_url,cookies=cook)
     r.encoding = r.apparent_encoding
     s=BeautifulSoup(r.text)
@@ -33,6 +34,7 @@ def check_flows(url,cook,key):
             requests.get("https://sc.ftqq.com//{}.send?text={}&desp={}".format(key,"check_flow",i.string))
     
 def get_day_flows(post_url,get_url,cook,key):
+    print("enter post flow!")
     resp=requests.post(post_url,cookies=cook)
     check_flows(get_url,cook,key)
     if eval(resp.text)['msg'] != '您似乎已经续命过了...':

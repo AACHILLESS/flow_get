@@ -42,10 +42,12 @@ def get_day_flows(post_url,get_url,cook,key):
         
 def main():
     for i in range(100):
+        print(i)
         try:
             get_day_flows(post_url,get_url,cook,key)
             return 0
         except:
+            print("error")
             continue
 
 if __name__=="__main__":

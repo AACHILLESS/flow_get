@@ -26,15 +26,16 @@ def check_flows(url,cook,key):
     r=requests.get(get_url,cookies=cook)
     r.encoding = r.apparent_encoding
     s=BeautifulSoup(r.text)
-    print('BeautifulSoup is OK')
     inf=s.find_all("div",class_="card-inner margin-bottom-no")[3]
+    print('find is OK')
     for i in inf.children:
         if i.string is None:
             continue
         if "剩余量" in i.string:
             print("enter flow ftqq send!")
             requests.get("https://sc.ftqq.com//{}.send?text={}&desp={}".format(key,"check_flow",i.string))
-    
+    print("send ok!")
+
 def get_day_flows(post_url,get_url,cook,key):
     
     print("enter post flow!")

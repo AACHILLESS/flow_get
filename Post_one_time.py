@@ -26,7 +26,7 @@ def check_flows(url,cook,key):
     r.encoding = r.apparent_encoding
     s=BeautifulSoup(r.text)
     inf=s.find_all("div",class_="card-inner margin-bottom-no")[3]
-    for i in t.children:
+    for i in inf.children:
         if i.string is None:
             continue
         if "剩余量" in i.string:

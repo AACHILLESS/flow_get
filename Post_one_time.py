@@ -41,9 +41,9 @@ def get_day_flows(post_url,get_url,cook,key):
         requests.get("https://sc.ftqq.com//{}.send?text={}&desp={}".format(key,"post_res",eval(resp.text)['msg']))
         
 def main():
-    while True:
+    for i in range(100):
         try:
-            get_day_flows(post_url,get_url,key)
+            get_day_flows(post_url,get_url,cook,key)
             return 0
         except:
             continue

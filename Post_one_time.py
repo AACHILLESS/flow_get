@@ -29,6 +29,7 @@ def check_flows(url,cook,key):
     s=BeautifulSoup(r.text,features="html.parser")
     print("BeautifulSoup ok")
     inf=s.find_all("div",class_="card-inner margin-bottom-no")[3]
+    print(inf)
     print('find is OK')
     for i in inf.children:
         if i.string is None:

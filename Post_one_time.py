@@ -44,6 +44,7 @@ def main():
     while True:
         try:
             get_day_flows(post_url,get_url,key)
+            return 0
         except:
             continue
 

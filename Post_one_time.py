@@ -31,13 +31,18 @@ def check_flows(url,cook,key):
         if i.string is None:
             continue
         if "剩余量" in i.string:
-            print("enter ftqq send!")
+            print("enter flow ftqq send!")
             requests.get("https://sc.ftqq.com//{}.send?text={}&desp={}".format(key,"check_flow",i.string))
     
 def get_day_flows(post_url,get_url,cook,key):
+    
     print("enter post flow!")
+    
     resp=requests.post(post_url,cookies=cook)
     check_flows(get_url,cook,key)
+    
+    print("enter post flow send!")
+    
     if eval(resp.text)['msg'] != '您似乎已经续命过了...':
         requests.get("https://sc.ftqq.com//{}.send?text={}&desp={}".format(key,"post_res",'您似乎已经续命过了...'))
     else:

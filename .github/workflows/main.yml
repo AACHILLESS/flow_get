@@ -32,4 +32,4 @@ jobs:
       # Runs a single command using the runners shell
       - name: '[Main] Check in'
         run: |
-          python Post_one_time.py
+          python test.py

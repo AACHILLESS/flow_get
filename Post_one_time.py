@@ -28,10 +28,10 @@ def check_flows(url,cook,key):
     r.encoding = r.apparent_encoding
     s=BeautifulSoup(r.text,features="html.parser")
     print("BeautifulSoup ok")
-    inf=s.find_all("div",class_="card-inner margin-bottom-no")[3]
-    print(type(inf))
+    infma=s.find_all("div",class_="card-inner margin-bottom-no")[3]
+    print(infma)
     print('find is OK')
-    for i in inf.children:
+    for i in infma.children:
         if i.string is None:
             continue
         if "剩余量" in i.string:
@@ -49,9 +49,9 @@ def get_day_flows(post_url,get_url,cook,key):
     print("enter post flow send!")
     
     if eval(resp.text)['msg'] != '您似乎已经续命过了...':
-        requests.get("https://sc.ftqq.com//{}.send?text={}&desp={}".format(key,"post_res",'您似乎已经续命过了...'))
-    else:
         requests.get("https://sc.ftqq.com//{}.send?text={}&desp={}".format(key,"post_res",eval(resp.text)['msg']))
+    else:
+        requests.get("https://sc.ftqq.com//{}.send?text={}&desp={}".format(key,"post_res",'您似乎已经续命过了...'))
         
 def main():
     for i in range(100):
@@ -63,4 +63,4 @@ def main():
             print("error")
             continue
 if __name__=="__main__":
-    main()
+    get_day_flows(post_url,get_url,cook,key)

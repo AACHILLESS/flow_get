@@ -27,7 +27,7 @@ def check_flows(url,cook,key):
     print("get ok!")
     r.encoding = r.apparent_encoding
     s=BeautifulSoup(r.text,features="html.parser")
-    print("BeautifulSoup ok")
+    print(s)
     infma=s.find_all("div",class_="card-inner margin-bottom-no")
     print(infma)
     print('find is OK')

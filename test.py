@@ -21,6 +21,6 @@ key="SCT110020T1xPaSPaJ0iZKD2BpPbK8Gi7x"
 post_url="https://lichen.mutualism.zone/user/checkin"
 get_url="https://lichen.mutualism.zone/user"
 
-r=requests.get(get_url,cookies=cook)
+r=requests.get(get_url)
 
 print(r.text)
